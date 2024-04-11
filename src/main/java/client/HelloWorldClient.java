@@ -18,7 +18,7 @@ public class HelloWorldClient {
             GreeterGrpc.GreeterBlockingStub blockingStub = GreeterGrpc.newBlockingStub(channel);
 
             // Create a request
-            HelloRequest request = HelloRequest.newBuilder().setName("Peter").build();
+            HelloRequest request = HelloRequest.newBuilder().setName("Peter from client").build();
 
             // Call the RPC and get the response
             HelloResponse response = blockingStub.sayHello(request);
