@@ -1,6 +1,6 @@
 
 
-package main.com.example.grpc.helloworld;
+package server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

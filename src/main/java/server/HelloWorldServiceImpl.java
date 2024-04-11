@@ -1,4 +1,4 @@
-package main.com.example.grpc.helloworld;
+package server;
 
 import com.example.grpc.helloworld.GreeterGrpc;
 import com.example.grpc.helloworld.HelloRequest;
