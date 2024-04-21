@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.smarthotel.checkin;
+
+option java_multiple_files = true;
+option java_package = "com.smarthotel.checkin";
+option java_outer_classname = "CheckInProto";
+
+// The Check-In Service definition.
+service CheckInService {
+  // Sends a check-in request
+  rpc CheckInGuest(CheckInRequest) returns (CheckInResponse) {}
+}
+
+// The request message containing guest information.
+message CheckInRequest {
+  string guest_id = 1;
+  string room_number = 2;
+}
+
+// The response message containing the result of the check-in.
+message CheckInResponse {
+  bool success = 1;
+  string message = 2;
+}
