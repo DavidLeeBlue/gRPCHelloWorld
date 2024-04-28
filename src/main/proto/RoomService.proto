@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.smarthotel.roomservice;
+
+option java_multiple_files = true;
+option java_package = "com.smarthotel.server.roomservice";
+option java_outer_classname = "RoomServiceProto";
+
+service RoomService {
+  // Bidirectional streaming RPC
+  rpc RoomServiceStream(stream RoomServiceRequest) returns (stream RoomServiceResponse);
+}
+
+message RoomServiceRequest {
+  string guestName = 1;
+  string roomNumber = 2;
+  string request = 3;
+}
+
+message RoomServiceResponse {
+  string roomNumber = 1;
+  string status = 2;
+}

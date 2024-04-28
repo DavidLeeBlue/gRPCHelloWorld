@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package com.smarthotel.lightswitch;
+
+option java_multiple_files = true;
+option java_package = "com.smarthotel.server.lightwitch";
+option java_outer_classname = "LightSwitchProto";
+
+service LightSwitchService {
+  // Unary RPC
+  rpc sendUnaryRequest(UnaryRequest) returns (UnaryResponse); // define the request and response messages
+
+  // Server-side streaming RPC for health check
+  rpc HealthCheck(HealthCheckRequest) returns (stream HealthCheckResponse);
+
+  // New methods for light switch
+  rpc TurnOn(TurnOnRequest) returns (TurnOnResponse);
+  rpc TurnOff(TurnOffRequest) returns (TurnOffResponse);
+}
+
+message UnaryRequest {
+  string request = 1;
+}
+
+message UnaryResponse {
+  string response = 1;
+}
+
+message HealthCheckRequest {
+  string serviceName = 1;
+  string serviceVersion = 2;
+  int64 timestamp = 3;
+}
+
+message HealthCheckResponse {
+  int32 status = 1;
+  string message = 2;
+}
+
+// New messages for light switch
+message TurnOnRequest {}
+message TurnOnResponse {
+  string status = 1;
+}
+
+message TurnOffRequest {}
+message TurnOffResponse {
+  string status = 1;
+}

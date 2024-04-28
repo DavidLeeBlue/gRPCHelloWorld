@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.smarthotel.guestfeedback;
+
+option java_multiple_files = true;
+option java_package = "com.smarthotel.server.guestfeedback";
+option java_outer_classname = "GuestFeedbackProto";
+
+service GuestFeedbackService {
+  // Client-side streaming RPC for submitting feedback
+  rpc SubmitFeedback(stream FeedbackRequest) returns (FeedbackResponse);
+}
+
+message FeedbackRequest {
+  string guestName = 1;
+  string feedback = 2;
+}
+
+message FeedbackResponse {
+  string message = 1;
+}
